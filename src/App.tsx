@@ -1,29 +1,46 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 import { PMain } from './pages/PMain';
 import { LMain } from './layouts/LMain'
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
+import { createMuiTheme } from '@material-ui/core';
 
-const theme = {
-  colors: {
+const theme = createMuiTheme({
+  palette: {
     primary: {
-      background: "#1976d2",
-      text: '#ffffff'
+      main: "#01579b"
     },
-    secondary: '#fbc02d'
+    secondary: {
+      main: "#ffc38b"
+    },
+  },
+  typography: {
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(',')
   }
-}
+})
+
 function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <ThemeProvider theme={theme}>
+        <MuiThemeProvider theme={theme}>
           <LMain>
             <PMain></PMain>
           </LMain>
-        </ThemeProvider>
+        </MuiThemeProvider>
       </PersistGate>
     </Provider>
   );
