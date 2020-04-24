@@ -9,6 +9,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   select: {
     '& div, & label, & svg': {
       color: theme.palette.getContrastText(theme.palette.primary.main)
+    },
+    ' & :after, & :before': {
+      borderBottom: `2px solid ${theme.palette.getContrastText(theme.palette.primary.main)}`
+    },
+    '& .MuiInput-underline:hover:before': {
+      borderBottom: `2px solid ${theme.palette.secondary.main}`
     }
   }
 }));
