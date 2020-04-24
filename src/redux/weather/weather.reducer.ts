@@ -26,7 +26,7 @@ function weatherReducer(state = initialState, action: { type: string, payload: a
             const {weatherData} = action.payload
             return {
                 ...state,
-                weatherData: weatherData,
+                weatherData: getIconUrl(weatherData),
                 loading: false
             }
         }
@@ -34,7 +34,10 @@ function weatherReducer(state = initialState, action: { type: string, payload: a
     }
 }
 
-//openweathermap.org/img/wn/02d@2x.png
+function getIconUrl(weatherData: any){
+        weatherData['iconUrl'] = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
+        return weatherData
+}
 
 
 
