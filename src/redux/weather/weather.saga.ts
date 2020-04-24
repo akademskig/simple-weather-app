@@ -17,14 +17,17 @@ function* fetchWeather(query: string) {
    }
 }
 
+/**
+ * Dispatches fetchWeatherStart action on city select.
+ */
 function* selectCity(selectedCityId: number) {
    const { value } = yield select(selectCityById(selectedCityId))
 
    try {
       yield put(fetchWeatherStart(value))
    }
-   catch (err) {
-
+   catch (error) {
+      console.error(error)
    }
 }
 
