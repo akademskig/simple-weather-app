@@ -11,21 +11,19 @@ import { fetchWeatherStart } from './weather.actions';
 function* fetchWeather(query: string) {
    try {
       const weatherData = yield call(WeatherApi.fetchWeather, query);
-      yield put({type: FETCH_WEATHER_OK, payload: {weatherData}});
+      yield put({ type: FETCH_WEATHER_OK, payload: { weatherData } });
    } catch (error) {
-       console.error(error)
+      console.error(error)
    }
 }
 
-function* selectCity(selectedCityId: number){
-   console.log(selectedCityId)
-   const {value}= yield select(selectCityById(selectedCityId)) 
-   console.log(value)
-  
-   try{
+function* selectCity(selectedCityId: number) {
+   const { value } = yield select(selectCityById(selectedCityId))
+
+   try {
       yield put(fetchWeatherStart(value))
    }
-   catch(err){
+   catch (err) {
 
    }
 }
