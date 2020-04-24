@@ -17,3 +17,8 @@ export const selectCityById = (cityId: number) => createSelector(
     [selectAvailableCities],
     (availableCities: any[]): any => availableCities.find(city => city.id === cityId)
 )
+
+export const selectWeatherData = createSelector(
+    [selectWeather],
+    (weather) => weather.weatherData
+)

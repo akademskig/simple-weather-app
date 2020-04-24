@@ -3,7 +3,7 @@ import { availableCities } from '../../config';
 import { WeatherState } from './types/index';
 const initialState : WeatherState = {
     availableCities: availableCities,
-    weatherData: [],
+    weatherData: null,
     selectedCity: availableCities[0]
 }
 
@@ -33,7 +33,8 @@ function weatherReducer(state = initialState, action: { type: string, payload: a
         default: return state
     }
 }
-console.log(initialState)
+
+//openweathermap.org/img/wn/02d@2x.png
 
 
 

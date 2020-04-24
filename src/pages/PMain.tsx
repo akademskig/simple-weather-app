@@ -1,14 +1,14 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Container } from '@material-ui/core';
+import { selectWeatherData } from '../redux/weather/weather.selectors';
+import { useSelector } from 'react-redux';
 
-const PMainContainer = styled.div`
-padding: 0 24px;
-
-`
 export function PMain() {
+
+  const weatherData = useSelector(selectWeatherData)
     return (
-        <PMainContainer>
-          I'm a page
-        </PMainContainer>
+        <Container>
+         {JSON.stringify(weatherData)}
+        </Container>
     )
 }
