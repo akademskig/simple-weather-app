@@ -5,7 +5,7 @@ const selectWeather = (state: any) => state.weather
 
 export const selectSelectedCity = createSelector(
     [selectWeather],
-    (weather: WeatherState): any => { console.log(weather); return weather.selectedCity }
+    (weather: WeatherState): any => weather.selectedCity 
 )
 
 export const selectAvailableCities = createSelector(

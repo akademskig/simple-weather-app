@@ -4,7 +4,8 @@ import { WeatherState } from './types/index';
 const initialState : WeatherState = {
     availableCities: availableCities,
     weatherData: null,
-    selectedCity: availableCities[0]
+    selectedCity: availableCities[0],
+    loading: false
 }
 
 function weatherReducer(state = initialState, action: { type: string, payload: any }) {
