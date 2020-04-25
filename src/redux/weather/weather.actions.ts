@@ -1,10 +1,7 @@
 import { FETCH_WEATHER_OK, SELECT_CITY, FETCH_WEATHER_START } from './weather.types';
 
-export const fetchWeatherStart = (cityValue:string) => ({
+export const fetchWeatherStart = () => ({
     type: FETCH_WEATHER_START,
-    payload:{
-        cityValue
-    }
 })
 
 export const fetchWeatherOk = (weatherData: []) => ({

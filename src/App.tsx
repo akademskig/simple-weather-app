@@ -1,7 +1,6 @@
 import React from 'react';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import { PMain } from './pages/PMain';
-import { LMain } from './layouts/LMain'
+import PMain from './pages/PMain';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
@@ -37,9 +36,7 @@ function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <MuiThemeProvider theme={theme}>
-          <LMain>
             <PMain></PMain>
-          </LMain>
         </MuiThemeProvider>
       </PersistGate>
     </Provider>
