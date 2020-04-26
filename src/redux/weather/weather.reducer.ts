@@ -1,11 +1,12 @@
-import { SELECT_CITY, FETCH_WEATHER_START, FETCH_WEATHER_OK } from './weather.types';
+import { SELECT_CITY, FETCH_WEATHER_START, FETCH_WEATHER_OK, FETCH_WEATHER_ERROR } from './weather.types';
 import { availableCities } from '../../config';
 import { WeatherState } from './types/index';
 const initialState : WeatherState = {
     availableCities: availableCities,
     weatherData: null,
     selectedCity: availableCities[0],
-    loading: false
+    loading: false,
+    error: null
 }
 
 function weatherReducer(state = initialState, action: { type: string, payload?: any }):WeatherState {
@@ -27,8 +28,23 @@ function weatherReducer(state = initialState, action: { type: string, payload?: 
             const {weatherData} = action.payload
             return {
                 ...state,
+                error: null,
                 weatherData: getIconUrl(weatherData),
                 loading: false
+            }
+        }
+        case FETCH_WEATHER_ERROR: {
+            const {error} = action.payload
+            return {
+                ...state,
+                error: error,
+                loading: false
+            }
+        }
+        case "persist/REHYDRATE": {
+            return {
+                ...state,
+                availableCities: availableCities
             }
         }
         default: return state

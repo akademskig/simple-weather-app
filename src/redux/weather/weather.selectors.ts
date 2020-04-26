@@ -26,3 +26,8 @@ export const selectLoading = createSelector(
     [selectWeather],
     (weather) => weather.loading
 )
+
+export const selectError = createSelector(
+    [selectWeather],
+    (weather) => weather.error
+)

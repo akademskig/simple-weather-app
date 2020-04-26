@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { createStyles, makeStyles } from '@material-ui/core';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
-const useStyles = makeStyles(() => createStyles({
-    modal: {
+const useStyles = makeStyles((theme: Theme) => createStyles({
+    center: {
         position: 'absolute',
         display: 'flex',
         alignItems: 'center',
@@ -15,13 +15,26 @@ const useStyles = makeStyles(() => createStyles({
         '& .modalText': {
             marginLeft: '1em'
         }
+    },
+    topRight: {
+        position: 'absolute',
+        display: 'flex',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        justifyContent: "flex-end",
+        color: theme.palette.error.dark,
+        '& :hover': {
+            cursor: 'pointer',
+        }
     }
-}));
+}))
 
-function CModal({ children }: any) {
-    const classes = useStyles()
+function CModal({ color, position, children }: any) {
+    const classes = useStyles({ color })
     return (
-        <div className={classes.modal}>
+        <div className={position === "topRight" ? classes.topRight : classes.center}>
             {children}
         </div>
     )
