@@ -10,6 +10,7 @@ class PMain extends Component<{ startApp: () => void }>{
   intervalId = 0
   componentDidMount() {
     const { startApp } = this.props
+    startApp()
     this.intervalId = setInterval(startApp, requestRate)
   }
   componentWillUnmount() {
