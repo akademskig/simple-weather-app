@@ -41,12 +41,6 @@ function weatherReducer(state = initialState, action: { type: string, payload?: 
                 loading: false
             }
         }
-        case "persist/REHYDRATE": {
-            return {
-                ...state,
-                availableCities: availableCities
-            }
-        }
         default: return state
     }
 }
