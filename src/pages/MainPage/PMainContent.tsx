@@ -1,10 +1,11 @@
 import React from 'react';
-import { Paper, createStyles, makeStyles, Tooltip, CircularProgress } from '@material-ui/core';
+import { Paper, createStyles, makeStyles, CircularProgress } from '@material-ui/core';
 import { selectWeatherData, selectError, selectLoading } from '../../redux/weather/weather.selectors';
 import { useSelector } from 'react-redux';
 import ErrorIcon from '@material-ui/icons/Error';
 import WeatherDisplay from './WeatherDisplay';
 import CModal from '../../components/CModal';
+import { CTooltip } from '../../components/CTooltip';
 
 const useStyles = makeStyles(() => createStyles({
   paper: {
@@ -36,9 +37,9 @@ export function PMainContent() {
         </CModal>}
       {error &&
         <CModal color="red" position="topRight">
-          <Tooltip title="An error occurred">
+          <CTooltip title="An error occurred">
             <ErrorIcon fontSize="large"></ErrorIcon>
-          </Tooltip>
+          </CTooltip>
         </CModal>}
     </Paper>
   )
