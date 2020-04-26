@@ -22,3 +22,7 @@ export const selectWeatherData = createSelector(
     [selectWeather],
     (weather) => weather.weatherData
 )
+export const selectLoading = createSelector(
+    [selectWeather],
+    (weather) => weather.loading
+)

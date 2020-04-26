@@ -8,7 +8,7 @@ const initialState : WeatherState = {
     loading: false
 }
 
-function weatherReducer(state = initialState, action: { type: string, payload: any }) {
+function weatherReducer(state = initialState, action: { type: string, payload?: any }):WeatherState {
     switch (action.type) {
         case SELECT_CITY: {
             const { selectedCityId } = action.payload
@@ -20,7 +20,7 @@ function weatherReducer(state = initialState, action: { type: string, payload: a
         case FETCH_WEATHER_START: {
             return {
                 ...state,
-                loading: true
+                loading: !state.weatherData && true
             }
         }
         case FETCH_WEATHER_OK: {
