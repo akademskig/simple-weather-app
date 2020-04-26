@@ -12,8 +12,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
         paddingTop: '10vh',
         [theme.breakpoints.down('xs')]: {
             height: `calc(90vh - 56px)`,
-            paddingLeft: '1em',
-            paddingRight: '1em'
+            paddingLeft: '0.5em',
+            paddingRight: '0.5em'
         }
     },
 }));
