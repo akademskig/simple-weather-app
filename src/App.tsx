@@ -1,6 +1,6 @@
 import React from 'react';
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import PMain from './pages/PMain';
+import PMain from './pages/MainPage/PMain';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
