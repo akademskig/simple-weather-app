@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import { Typography, createStyles, makeStyles, Theme } from '@material-ui/core';
 import { selectSelectedCity } from '../../../redux/weather/weather.selectors';
 import { useSelector } from 'react-redux';
-import AlertIcon from '@material-ui/icons/Error'
+import AlertIcon from '@material-ui/icons/WarningTwoTone'
 import { CTooltip } from '../../../components/CTooltip';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -64,12 +64,12 @@ export default function CTemperatureDisplay({ iconUrl, weather, main }: any) {
             </div>
           </CTooltip>
           {main.temp > maxTemp &&
-            <CTooltip title="Temperature above normal">
+            <CTooltip placement="top-start"title="Temperature above normal">
               <AlertIcon color="error" className={classes.alert}></AlertIcon>
             </CTooltip>
           }
           {main.temp < minTemp &&
-            <CTooltip title="Temperature below normal">
+            <CTooltip  placement="top-start" title="Temperature below normal">
               <AlertIcon color="primary" className={classes.alert}></AlertIcon>
             </CTooltip>
           }
